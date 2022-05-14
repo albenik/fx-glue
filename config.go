@@ -57,23 +57,24 @@ func enumerateFields(list *[]interface{}, v reflect.Value) *AppConfig {
 			continue
 		}
 
-		anno, name, err := parseTag(t.Field(i).Tag.Get("fx"))
-		if err != nil {
-			panic(err)
-		}
-
-		if anno == "" {
+		tag := t.Field(i).Tag.Get("fx")
+		if tag == "" {
 			if c := enumerateFields(list, field); c != nil && conf == nil {
 				conf = c
 			}
 			continue
 		}
 
-		switch anno {
+		oname, oval, err := parseTag(tag)
+		if err != nil {
+			panic(err)
+		}
+
+		switch oname {
 		case "name":
-			*list = append(*list, fx.Annotated{Name: name, Target: fieldVal})
+			*list = append(*list, fx.Annotated{Name: oval, Target: fieldVal})
 		case "group":
-			*list = append(*list, fx.Annotated{Group: name, Target: fieldVal})
+			*list = append(*list, fx.Annotated{Group: oval, Target: fieldVal})
 		default:
 			*list = append(*list, fieldVal)
 		}
