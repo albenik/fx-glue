@@ -1,0 +1,36 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+indent_style = space
+indent_size = 4
+ij_continuation_indent_size = 8
+
+[*.go]
+indent_style = tab
+indent_size = tab
+tab_width = 8
+ij_go_import_sorting = goimports
+ij_go_group_stdlib_imports = true
+ij_go_move_all_imports_in_one_declaration = true
+ij_go_move_all_stdlib_imports_in_one_group = true
+ij_go_remove_redundant_import_aliases = true
+
+[*.js]
+indent_style = space
+indent_size = 4
+ij_javascript_spaces_within_imports = true
+
+[*.json]
+indent_style = space
+indent_size = 2
+
+[*.{yml, yaml}]
+indent_style = space
+indent_size = 2
+ij_yaml_indent_sequence_value = true
