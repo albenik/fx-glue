@@ -2,6 +2,8 @@
 
 Some helper for the https://github.com/uber-go/fx
 
+[![CI](https://github.com/albenik/fx-glue/actions/workflows/ci.yaml/badge.svg)](https://github.com/albenik/fx-glue/actions/workflows/ci.yaml)
+
 ## Install
 
 ```shell
